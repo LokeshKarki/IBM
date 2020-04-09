@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>
+            Test
+        </title>
+        
+    </head>
+    <body>
+        <input id ="op1" type = "number"/>
+        <input id ="op2" type = "number"/>
+        <div id ="result"></div>
+        <button onclick="add()">+</button>
+
+       
+        <button onclick="sub()">-</button>
+
+        
+        <button onclick="mul()">*</button>
+        
+        
+        <button onclick="div()">/</button>
+       
+         <script>
+             function add()
+             {
+                 console.log('Adding....')
+                 var op1 = document.getElementById('op1').value
+                 var op2 = document.getElementById('op2').value
+                 var result = parseInt(op1)+parseInt(op2)
+                 document.getElementById('result').innerText = result
+             }
+             function mul()
+             {
+                 console.log('multiplying....')
+                 var op1 = document.getElementById('op1').value
+                 var op2 = document.getElementById('op2').value
+                 var result = parseInt(op1)*parseInt(op2)
+                 document.getElementById('result').innerText = result
+             }
+             function sub()
+             {
+                 
+                 var op1 = document.getElementById('op1').value
+                 var op2 = document.getElementById('op2').value
+                 if (op2< op1)
+                 {console.log('subtracting....')
+                 var result = parseInt(op1)-parseInt(op2)
+                 document.getElementById('result').innerText = result
+                 }
+                 else{
+                    console.log('not subtracting....')
+                 document.getElementById('result').innerText = "operand 1 should be bigger"
+                 }  
+             }
+             function div()
+             {
+                 
+                 var op1 = document.getElementById('op1').value
+                 var op2 = document.getElementById('op2').value
+                 if (op2< op1)
+                 {  console.log('divding....')
+                     var result = parseInt(op1)/parseInt(op2)
+                 document.getElementById('result').innerText = result
+                 }
+                 else
+                 {console.log('not divding....')
+                 document.getElementById('result').innerText = "operand 1 should be bigger"
+                 }
+                }
+        </script>
+    </body>
+</html>
