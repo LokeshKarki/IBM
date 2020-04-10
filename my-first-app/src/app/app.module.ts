@@ -10,12 +10,13 @@ import { CardComponent } from './Components/card/card.component';
 import { JumbotronComponent } from './Component/jumbotron/jumbotron.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GridComponent } from './Components/grid/grid.component'
+import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [
-    AppComponent, DateComponent, BadgeComponent, CardComponent, JumbotronComponent, GridComponent
+    AppComponent, DateComponent, BadgeComponent, CardComponent, JumbotronComponent, GridComponent, SearchPipe
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
