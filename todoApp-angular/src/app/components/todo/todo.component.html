@@ -1,0 +1,16 @@
+<h3>Todo List</h3>
+<div>
+    <table>
+        <tr>
+            <td>
+                <input class = "wrapper" type="text" #item placeholder="Enter a todo item" [(ngModel)] = "input_placeholder" name = "input_placeholder"/> <button class = "btn-add" (click) = "onAdd(item.value); clear()"> + </button>
+            </td>
+        </tr>
+        <tr *ngFor = "let todo of todos">
+            <td>
+                {{ todo }}
+                <div class = "btn-delete"><button (click) = "onDelete(todo)"> x </button></div>
+            </td>
+        </tr>
+    </table>
+</div>

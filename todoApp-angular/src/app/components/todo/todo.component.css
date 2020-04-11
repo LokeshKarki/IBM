@@ -1,0 +1,20 @@
+table {
+    width: 50%;
+    text-align: left
+}
+
+td {
+    padding: 5px;
+    width: 100%;
+    border-bottom: 1px solid black
+}
+
+.btn-delete, .btn-add {
+    float: right;
+}
+
+.wrapper {
+    border: none;
+    border-color: transparent;
+    width: 80%
+}
