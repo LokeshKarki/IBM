@@ -8,7 +8,7 @@
 <!-- 
  -->
 
- <div class="container">
+<!-- <div class="container">
   <div class="row">
   
     <div class="input-group mb-3">
@@ -16,13 +16,17 @@
         <span class="input-group-text" id="basic-addon1">Search Employee </span>
       </div>
       <input type="text" #name (keyup)="0" class="form-control" placeholder="Enter a name here" aria-label="Username" aria-describedby="basic-addon1">
-
-
     </div> 
    
       <app-card *ngFor="let course of courses | search:name.value" caption="{{course.name}}" summary="{{course.salary}}" id="{{course.id}}"></app-card>
       
       
-    
+  
   </div>
-</div>
+</div> -->
+<p>App component</p>
+
+<hr/>
+<app-first data="{{alphabets}}" (loaded)="handleLoadedEvent($event)"></app-first>
+<hr/>
+<app-second data="{{alphabets | slice:0:3}}"></app-second>
