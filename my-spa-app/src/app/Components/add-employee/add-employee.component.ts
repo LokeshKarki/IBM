@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmbeddedTemplateAst } from '@angular/compiler';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -9,18 +8,22 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  employees: Array<any> = []
 
+  showMessage : boolean = false;
   constructor(private employeeService : EmployeeService) { }
 
   ngOnInit(): void {
+  }
 
-    
-    this.employeeService.addEmployee()
-    .subscribe((res:any)=> {
-      console.log(res);
-      this.employees = res;
-    })
+  addEmployee(name: string, salary: number){
+    console.log(name, salary);
+    this.employeeService.addEmployee(name, salary)
+    .subscribe(res=>{
+      console.log(res)
+      if(res.status == 201){
+        this.showMessage = true;
+      }
+    });
   }
 
 }

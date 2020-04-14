@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:8000/api/employee/'
 @Injectable({
@@ -14,13 +13,14 @@ export class EmployeeService {
     return this.http.get(baseUrl);
   }
 
+  addEmployee(name: string, salary: number){
+    return this.http.post(baseUrl, 
+      {name: name, salary: salary},{observe : 'response'})
 
-  addEmployee()
- { return this.http.post(baseUrl, 
-   {
-    "name": "Mukesh Ambani",
-    "salary": 9123100.00
-    } 
- );
- }
+  }
+
+  deleteEmployee(id: number){
+    return this.http.delete(baseUrl + id, {observe : 'response'})
+
+  }
 }

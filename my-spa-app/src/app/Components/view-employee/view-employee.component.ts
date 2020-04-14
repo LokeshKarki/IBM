@@ -19,5 +19,15 @@ export class ViewEmployeeComponent implements OnInit {
       this.employees = res;
     })
   }
+  deleteEmployee(id: number){
+    this.employeeService.deleteEmployee(id)
+    .subscribe((res:any)=> {
+      console.log(res);
+     if(res.status == 200){
+       this.showMessage = true;
+       this.employees = this.employees.filter((employee)=> employee.id!=id)
+     }
+    })
+  }
 
 }
