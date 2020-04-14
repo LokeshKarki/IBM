@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmbeddedTemplateAst } from '@angular/compiler';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor() { }
+  employees: Array<any> = []
+
+  constructor(private employeeService : EmployeeService) { }
 
   ngOnInit(): void {
+
+    
+    this.employeeService.addEmployee()
+    .subscribe((res:any)=> {
+      console.log(res);
+      this.employees = res;
+    })
   }
 
 }
