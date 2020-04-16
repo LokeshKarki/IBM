@@ -7,7 +7,8 @@ import { LogService } from 'src/app/services/log.service';
 @Component({
   selector: 'app-view-employee',
   templateUrl: './view-employee.component.html',
-  styleUrls: ['./view-employee.component.css']
+  styleUrls: ['./view-employee.component.css'],
+
 })
 export class ViewEmployeeComponent implements OnInit {
   showMessage : boolean = false;
