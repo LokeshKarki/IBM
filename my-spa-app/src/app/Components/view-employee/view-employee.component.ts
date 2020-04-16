@@ -1,5 +1,8 @@
-  import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/models/employee';
+import { Router } from '@angular/router';
+import { LogService } from 'src/app/services/log.service';
 
 @Component({
   selector: 'app-view-employee',
@@ -7,18 +10,19 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./view-employee.component.css']
 })
 export class ViewEmployeeComponent implements OnInit {
+  showMessage : boolean = false;
+  employees: Array<Employee> = []
 
-  employees: Array<any> = []
-
-  constructor(private employeeService : EmployeeService) { }
+  constructor(private employeeService : EmployeeService, private router: Router,public logService: LogService) { }
 
   ngOnInit(): void {
     this.employeeService.fetchAllEmployees()
-    .subscribe((res:any)=> {
+    .subscribe((res:Array<Employee>)=> {
       console.log(res);
       this.employees = res;
     })
   }
+
   deleteEmployee(id: number){
     this.employeeService.deleteEmployee(id)
     .subscribe((res:any)=> {
@@ -30,4 +34,13 @@ export class ViewEmployeeComponent implements OnInit {
     })
   }
 
-}
+  editEmployee(employee: Employee){
+    console.log('edit employee' , employee);
+    this.router.navigate(['add', employee])
+  }
+  log(message: string){
+    this.logService.add(message)
+  }
+
+
+} 

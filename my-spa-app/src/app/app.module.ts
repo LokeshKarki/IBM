@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router'
 import { AppComponent } from './app.component';
@@ -10,7 +11,7 @@ import { ViewEmployeeComponent } from './components/view-employee/view-employee.
 //1. Define Routes
 const appRoutes: Routes = [
   { path: 'add', component:  AddEmployeeComponent},
-  { path: 'view', component: ViewEmployeeComponent },
+  { path: 'view',      component: ViewEmployeeComponent },
   
 ];
 
@@ -24,9 +25,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only, can be removed and used
+      { enableTracing: true } // <-- debugging purposes only
     )
   ],
   providers: [],

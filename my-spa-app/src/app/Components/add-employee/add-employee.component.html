@@ -1,22 +1,32 @@
-<h2>Add Employee</h2>
+<h2  *ngIf="!editMode">Add Employee</h2>
+<h2  *ngIf="editMode">Update Employee</h2>
 
 <div *ngIf="showMessage" class="alert alert-success" role="alert">
     Employee has been added successfully!!
 </div>
 
-
+<div [formGroup]="myForm"> 
+  <input type="text" hidden formControlName = "id" class="form-control">
 <div class="input-group flex-nowrap">
     <div class="input-group-prepend">
       <span class="input-group-text" id="addon-wrapping">Employee Name</span>
     </div>
-    <input type="text" #name class="form-control" placeholder="Enter name" aria-label="name" aria-describedby="addon-wrapping">
-   
+    <input type="text" formControlName = "name" class="form-control" placeholder="Enter name" aria-label="name" aria-describedby="addon-wrapping">
+    <span *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)" class="alert alert-danger">Name is missing</span>
 </div>
 
 <div class="input-group flex-nowrap">
 <div class="input-group-prepend">
     <span class="input-group-text" id="addon-wrapping">Employee Salary</span>
   </div>
-  <input type="number" #salary class="form-control" placeholder="Enter salary" aria-label="name" aria-describedby="addon-wrapping">
+  <input type="number" formControlName = "salary" class="form-control" placeholder="Enter salary" aria-label="name" aria-describedby="addon-wrapping">
 </div>
-<button type="button" class="btn btn-primary" (click)="addEmployee(name.value, salary.value)">Add Employee</button>
+<button *ngIf="!editMode" type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addEmployee()">Add Employee</button>
+<button *ngIf="editMode" type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="updateEmployee()">Update Employee</button>
+</div>
+
+<hr/>
+<input type="text" #logMessage placeholder="Enter log message"/>
+<button (click)="log(logMessage.value)">Log Message</button>
+<hr/>
+<p *ngFor="let message of logService.logs">{{message}}</p>
