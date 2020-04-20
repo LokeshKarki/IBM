@@ -1,0 +1,72 @@
+<p>take-quiz works!</p>
+<!-- <div class="card" style="width: 18rem;" *ngFor="let q of questions">
+    <div class="card-body">
+        <h5 class="card-title">{{q.text}}</h5>
+        <div *ngFor="let c of q.choices">{{c.text}}</div>
+    </div>
+</div> -->
+
+
+<!-- 
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{currentQuestion.text}}</h5>
+        <div class="radio" *ngFor="let c of choices">
+            <label><input type="radio" name="optradio" (click)="calculate(c.isAnswer)">{{c.text}}</label>
+        </div>
+        <div *ngIf="! isLastQuestion">
+            <button class="btn btn-primary" (click)="nextQuestion()">Next Question</button>
+        </div>
+        <br>
+        <div *ngIf="! isFirstQuestion">
+            <button class="btn btn-primary" (click)="previousQuestion()">Previous Question</button>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="viewResult()">submit</button>
+</div> -->
+
+<!-- 
+<!-- 
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="column">
+                <h1 class="display-4">{{currentQuestion.text}}</h1>
+                 <div *ngFor="let c of choices" class="lead">
+                    <label><input type="radio" (click)="calculate(c.isAnswer)">{{c.text}}</label> 
+                </div> 
+                <span class="lead" *ngIf="! isLast">
+                    <a class="btn btn-primary btn-lg"  (click)="getNextQuestion()">Next Question</a>
+                </span>
+                <span class="lead" *ngIf="! isFirst" style="margin-left: auto">
+                    <a class="btn btn-primary btn-lg" (click)="getPreviousQuestion()">Previous Question</a>
+                </span>
+                <span class="lead" style="margin-left: auto">
+                    <a class="btn btn-primary btn-lg" (click)="viewResult()">Submit</a>
+                </span> 
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <h5 class="card-title"> Q{{quesNumber}} {{questionName}}</h5>
+    <p class="card-text" *ngFor="let option of choice">
+     &nbsp; &nbsp; <input class="form-check-input" type="radio" name="exampleRadios">
+  <label class="form-check-label" for="exampleRadios1">
+    {{option.text}}
+  </label>
+      
+      </p>
+    <button type="button" *ngIf="!isFirst" class="btn btn-primary" (click)="getPreviousQuestion()">Previous Question</button>
+    &nbsp; &nbsp; &nbsp;
+    <button type="button" *ngIf="!isLast" class="btn btn-primary" (click)="getNextQuestion()">Next Question</button>
+    <button type="button" *ngIf="isLast" class="btn btn-primary">Finish Quiz</button>
+  </div>
+</div>
+  </div>
+</div> 
