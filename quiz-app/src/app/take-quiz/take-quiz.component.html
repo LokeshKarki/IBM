@@ -55,17 +55,18 @@
 <div class="card" style="width: 50rem;">
   <div class="card-body">
     <h5 class="card-title"> Q{{quesNumber}} {{questionName}}</h5>
-    <p class="card-text" *ngFor="let option of choice">
-     &nbsp; &nbsp; <input class="form-check-input" type="radio" name="exampleRadios">
+    <p  class="card-text" *ngFor="let option of choice">
+     &nbsp; &nbsp; <input class="form-check-input" type="radio" name="exampleRadios"(click) = caluclate(option.isAnswer)>
   <label class="form-check-label" for="exampleRadios1">
     {{option.text}}
   </label>
       
       </p>
-    <button type="button" *ngIf="!isFirst" class="btn btn-primary" (click)="getPreviousQuestion()">Previous Question</button>
+    <button type="button" *ngIf="!isFirst" class="btn btn-secondary" (click)="getPreviousQuestion()">Previous Question</button>
     &nbsp; &nbsp; &nbsp;
-    <button type="button" *ngIf="!isLast" class="btn btn-primary" (click)="getNextQuestion()">Next Question</button>
-    <button type="button" *ngIf="isLast" class="btn btn-primary">Finish Quiz</button>
+    <button type="button" *ngIf="!isLast" class="btn btn-secondary" (click)="getNextQuestion()">Next Question</button>
+    &nbsp; &nbsp; &nbsp;
+    <button type="button"  class="btn btn-primary"  (click) = "result()">Finish Quiz</button>
   </div>
 </div>
   </div>

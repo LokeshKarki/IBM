@@ -17,6 +17,7 @@ export class TakeQuizComponent implements OnInit {
   quizName:string;
   questions:Array<Question>;
   currentQuestion:any ;
+  currentIndex:number;
   index:number;
   questionName:string; 
   choice:Array<Choice>;
@@ -24,6 +25,11 @@ export class TakeQuizComponent implements OnInit {
   noOfQues:number;
   isLast:boolean=false;
   isFirst:boolean=false;
+  answer: Array<any>=[];
+  count:number;
+  quiz:Quiz;
+  length:any;
+  question:Question;
 
   ngOnInit(): void {
 
@@ -35,9 +41,6 @@ export class TakeQuizComponent implements OnInit {
      console.log("Questions through Params are",this.tryQuestion);*/
 
     });
-  
-
-    
 
 
 this.quizService.fetchSingleQuiz(this.quizName)
@@ -66,15 +69,23 @@ if(this.noOfQues==1)
 
   }
 
+  // public nextQUestion()
+  // {
+  //   this.quizService.quiz.currentQuestion = 
+  // }
+
+
   getNextQuestion()
   {
     this.isFirst=false;
     console.log("Next question called");
     this.currentQuestion=this.questions[this.index+1];
+    this.questionName = this.currentQuestion.text;
     console.log("Changed question=",this.currentQuestion);
     this.index=this.index+1;
     console.log("Changed index=",this.index);
     this.quesNumber=this.index+1;
+    this.choice = this.currentQuestion.choices;
     console.log("Changed question number=",this.quesNumber);
     this.router.navigate(['viewquestion'])
     if(this.index==(this.noOfQues-1))
@@ -93,10 +104,12 @@ getPreviousQuestion()
       this.isLast=false;
    console.log("Previous question called");
     this.currentQuestion=this.questions[this.index-1];
+    this.questionName = this.currentQuestion.text;
     console.log("Changed question=",this.currentQuestion);
     this.index=this.index-1;
     console.log("Changed index=",this.index);
     this.quesNumber=this.index+1;
+    this.choice = this.currentQuestion.choices;
     console.log("Changes question number=",this.quesNumber);
     console.log("Current Question=",this.currentQuestion);
     this.router.navigate(['viewquestion'])
@@ -107,5 +120,24 @@ getPreviousQuestion()
     }
 
   }
+
+
+  
+  calculate(isAnswer: boolean) {
+
+    this.answer[this.index]=isAnswer;
+    console.log(this.answer);
+  }
+  viewResult(){
+    this.answer.forEach(i => {
+      if (i == true) {
+        this.count++;
+      }
+    });
+    console.log("result", this.count);
+    this.router.navigate(["viewResult",{count:this.count,totalQuestion:this.length}]);
+
+}
+
 
 }

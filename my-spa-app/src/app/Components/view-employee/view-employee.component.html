@@ -7,8 +7,9 @@
     <li class="list-group-item" *ngFor="let employee of employees"> <p>{{employee.id}} : {{employee.name}} - {{employee.salary}} <button class="btn btn-danger" (click)="deleteEmployee(employee.id)"> X </button><button class="btn btn-warning" (click)="editEmployee(employee)"> Edit </button></p></li>
    
   </ul>
+
   <hr/>
   <input type="text" #logMessage placeholder="Enter log message"/>
   <button (click)="log(logMessage.value)">Log Message</button>
   <hr/>
-  <p *ngFor="let message of logService.logs">{{message}}</p> 
+  <p *ngFor="let message of logService.logs">{{message}}</p>

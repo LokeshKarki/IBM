@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { ViewEmployeeComponent } from './components/view-employee/view-employee.component';
+import { ObserveComponent } from './Components/observe/observe.component';
 
 //1. Define Routes
 const appRoutes: Routes = [
   { path: 'add', component:  AddEmployeeComponent},
   { path: 'view',      component: ViewEmployeeComponent },
+  {path:'observe', component:ObserveComponent}
   
 ];
 
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AddEmployeeComponent,
-    ViewEmployeeComponent
+    ViewEmployeeComponent,
+    ObserveComponent
   ],
   imports: [
     BrowserModule,
