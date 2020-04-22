@@ -1,12 +1,12 @@
 <div class = "row">
-<div class=" col-xs-4 col-sm-4 col-md-4 col-lg-4  justify-content-around" *ngFor="let q of quiz"  >
+<div class=" col-xs-4 col-sm-4 col-md-4 col-lg-4   justify-content-around" *ngFor="let q of quiz" >
   <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{q.name}}</mat-card-title>
         <mat-card-subtitle>Quiz Master</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions-700x300.png" alt="Quiz Pic">
+      <img mat-card-image  src="https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions-700x300.png" alt="Quiz Pic">
      
       
 
@@ -15,8 +15,7 @@
         
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="takequiz(q)">Take quiz </button>
-        <button mat-button>Result</button>
+        <button mat-button (click)="takequiz(q)">Take quiz </button>  
       </mat-card-actions>
     </mat-card>
     <br>

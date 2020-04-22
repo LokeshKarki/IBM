@@ -12,7 +12,9 @@ import { Question } from '../models/question';
 
 export class ViewQuizesComponent implements OnInit {
  quiz:Array<any> =[];
-
+ java:string ="Java";
+ html:string = "Html";
+ qName:string ="";
   constructor(private router: Router, private quizService: QuizService) { }
   currentQuestion:Question 
   ngOnInit(): void 
@@ -22,7 +24,8 @@ export class ViewQuizesComponent implements OnInit {
       console.log(res);
       this.quiz = res;
       this.currentQuestion = this.quiz[0].name;
-      console.log(this.currentQuestion);
+      this.qName = this.currentQuestion.name;
+     // console.log(this.currentQuestion);
     })
 
 

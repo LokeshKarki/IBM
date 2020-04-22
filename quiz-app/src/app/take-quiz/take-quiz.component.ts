@@ -17,7 +17,6 @@ export class TakeQuizComponent implements OnInit {
   quizName:string;
   questions:Array<Question>;
   currentQuestion:any ;
-  currentIndex:number;
   index:number;
   questionName:string; 
   choice:Array<Choice>;
@@ -26,9 +25,9 @@ export class TakeQuizComponent implements OnInit {
   isLast:boolean=false;
   isFirst:boolean=false;
   answer: Array<any>=[];
-  count:number;
+  count:number =0;
   quiz:Quiz;
-  length:any;
+  length:number;
   question:Question;
 
   ngOnInit(): void {
@@ -48,8 +47,10 @@ this.quizService.fetchSingleQuiz(this.quizName)
       console.log(res);
       console.log(res.question);
       this.questions = res.questions;
+      this.length = this.questions.length;
       console.log("Questions are",this.questions);
       this.currentQuestion=this.questions[0];
+      console.log(this.currentQuestion);
       this.questionName = this.currentQuestion.text;
       this.choice = this.currentQuestion.choices;
       console.log("Current question=",this.currentQuestion);
@@ -87,7 +88,7 @@ if(this.noOfQues==1)
     this.quesNumber=this.index+1;
     this.choice = this.currentQuestion.choices;
     console.log("Changed question number=",this.quesNumber);
-    this.router.navigate(['viewquestion'])
+    
     if(this.index==(this.noOfQues-1))
     {
       this.isLast=true;
@@ -112,7 +113,7 @@ getPreviousQuestion()
     this.choice = this.currentQuestion.choices;
     console.log("Changes question number=",this.quesNumber);
     console.log("Current Question=",this.currentQuestion);
-    this.router.navigate(['viewquestion'])
+    
     if(this.index==0)
     {
       this.isFirst=true;
@@ -128,14 +129,14 @@ getPreviousQuestion()
     this.answer[this.index]=isAnswer;
     console.log(this.answer);
   }
-  viewResult(){
+  Result(){
     this.answer.forEach(i => {
       if (i == true) {
         this.count++;
       }
     });
     console.log("result", this.count);
-    this.router.navigate(["viewResult",{count:this.count,totalQuestion:this.length}]);
+    this.router.navigate(["result",{count:this.count,totalQuestion:this.length}]);
 
 }
 
