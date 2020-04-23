@@ -13,7 +13,8 @@ import { FusionComponent } from './Components/fusion/fusion.component';
 import { ChartsJsComponent } from './Components/charts-js/charts-js.component';
 import { TryComponent } from './Components/try/try.component';
 import { RouterModule, Routes } from '@angular/router';
-import { Ng2ChartsComponent } from './Components/ng2-charts/ng2-charts.component';
+// import { Ng2ChartsComponent } from './Components/ng2-charts/ng2-charts.component';
+import { DynamicComponent } from './Components/dynamic/dynamic.component';
 
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 
@@ -21,7 +22,8 @@ const appRoutes: Routes=
 [
   {path: 'fusion',component:FusionComponent}, 
   {path:'chartsJs', component: ChartsJsComponent},
-  {path:'ng2-charts', component:Ng2ChartsComponent}
+  // {path:'ng2-charts', component:Ng2ChartsComponent},
+  {path:'dynamic', component:DynamicComponent}
 ]
 
 
@@ -31,10 +33,12 @@ const appRoutes: Routes=
     FusionComponent,
     ChartsJsComponent,
     TryComponent,
-    Ng2ChartsComponent
+    // Ng2ChartsComponent,
+    DynamicComponent
   ],
   imports: [
     BrowserModule, FusionChartsModule,
+    // Ng2ChartsComponent,
     AppRoutingModule,RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
