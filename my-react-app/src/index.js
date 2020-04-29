@@ -11,6 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 
+
 // const element =(<h2>Some title</h2>);
 // ReactDOM.render(element, document.getElementById('message'))
 
@@ -33,9 +34,10 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <Badge></Badge> */}
     <Dropdown caption="Select Courses"/>
-     <Lifecycle></Lifecycle>
+     {/* <Lifecycle></Lifecycle> */}
      <hr/>
-     {/* <Employee></Employee> */}
+     
+     <Employee></Employee>
   </React.StrictMode>,
   document.getElementById('root')
 );

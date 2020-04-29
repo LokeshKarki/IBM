@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import Employee from './Employee'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -9,6 +10,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+
+
+
   return (  <Router>
     <div>
       <nav>
@@ -17,7 +22,7 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/Employee">Employee</Link>
           </li>
           <li>
             <Link to="/users">Users</Link>
@@ -28,19 +33,25 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <Switch>
-        <Route path="/about">
-          <About />
+        <Route path="/Employee">
+        <Employee></Employee>
         </Route>
         <Route path="/users">
           <Users />
         </Route>
         <Route path="/">
-          <Home />
+          <Home></Home>
         </Route>
       </Switch>
     </div>
   </Router>
 );
+}
+
+function Demo()
+{ console.log("demo working");
+  return <h2>Demo</h2>
+
 }
 
 function Home() {
