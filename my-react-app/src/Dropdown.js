@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DropdownItem from './DropdownItem'
 class Dropdown extends Component {
     // state = {  }
     // This is not allowed
@@ -27,11 +27,10 @@ class Dropdown extends Component {
 
         let courseList = this.state.courses.map((course, i)=> {
             console.log(course, i)
-            return <a className="dropdown-item" onClick={this.handleItemClick.bind(this, course)} key={i} href="#">{course}</a>
+          return <DropdownItem text = {course} dropClicked = {this.handleItemClick.bind(this)}></DropdownItem>
+        //   return <a className="dropdown-item" onClick={this.handleItemClick.bind(this, course)} key={i} href="#">{course}</a>
         })
         console.log(courseList)
-
-
         return (
             <div className="dropdown">
                 <button onClick={this.handleClick.bind(this)} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

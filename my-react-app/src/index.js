@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Badge from './Badge';
-import Clock from './Clock';
+// import App from './App';
+import Badge from './Badge'
+import Clock from './Clock'
 import Dropdown from './Dropdown'
-
+import Lifecycle from './Lifecycle'
+import Employee from './Employee'
 import * as serviceWorker from './serviceWorker';
+
+
+
+// const element =(<h2>Some title</h2>);
+// ReactDOM.render(element, document.getElementById('message'))
+
 
 // setInterval(()=>{
 //   var today = new Date();
@@ -22,14 +29,18 @@ import * as serviceWorker from './serviceWorker';
 //   );
 // }, 1000)
 
-
 ReactDOM.render(
   <React.StrictMode>
     {/* <Badge></Badge> */}
     <Dropdown caption="Select Courses"/>
+     <Lifecycle></Lifecycle>
+     <hr/>
+     {/* <Employee></Employee> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
